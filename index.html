@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WealthMap — Your Personal Financial Roadmap</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- NAVIGATION -->
+    <!-- ========== NAVIGATION ========== -->
     <nav class="navbar">
       <div class="nav-brand">
         <span class="logo-icon">◈</span>
@@ -21,20 +20,19 @@
       <span class="nav-tagline">Your Personal Financial Roadmap</span>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- ========== HERO ========== -->
     <section class="hero">
       <h1>
-        Tell me what you have.<br /><span class="gradient-text"
-          >I'll show you what to do with it.</span
-        >
+        Tell me what you have.<br />
+        <span class="gradient-text">I'll show you what to do with it.</span>
       </h1>
       <p class="hero-sub">
-        Get a personalized map of every investment track and income opportunity,
-        built around you.
+        Get a personalized map of every investment track and income opportunity
+        — built around you.
       </p>
     </section>
 
-    <!-- PROFILE FORM -->
+    <!-- ========== PROFILE FORM ========== -->
     <section class="profile-section">
       <div class="profile-card">
         <h2>Build Your WealthMap</h2>
@@ -68,12 +66,23 @@
 
           <div class="form-group">
             <label>Amount You Can Invest</label>
-            <input type="number" id="userAmount" placeholder="e.g. 5000" />
+            <input
+              type="number"
+              id="userAmount"
+              placeholder="e.g. 5000"
+              min="0"
+            />
           </div>
 
           <div class="form-group">
             <label>Your Age</label>
-            <input type="number" id="userAge" placeholder="e.g. 22" />
+            <input
+              type="number"
+              id="userAge"
+              placeholder="e.g. 22"
+              min="16"
+              max="100"
+            />
           </div>
 
           <div class="form-group full-width">
@@ -94,90 +103,114 @@
         </div>
 
         <button class="build-btn" onclick="buildWealthMap()">
-          <span>◈ Build My WealthMap</span>
+          ◈ Build My WealthMap
         </button>
+
+        <!-- Error message shown if form incomplete -->
+        <p class="form-error" id="formError"></p>
       </div>
     </section>
 
-    <!-- LOADING STATE -->
-    <div class="loading-overlay" id="loadingOverlay">
+    <!-- ========== LOADING OVERLAY ========== -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none">
       <div class="loading-content">
         <div class="loading-spinner"></div>
         <p id="loadingText">Analyzing your profile...</p>
       </div>
     </div>
 
-    <!-- RESULTS SECTION (hidden until form submitted) -->
+    <!-- ========== RESULTS SECTION ========== -->
+    <!-- This entire section is hidden until the form is submitted -->
     <section class="results-section" id="resultsSection" style="display: none">
-      <!-- AI INSIGHT BANNER -->
+      <!-- AI Insight Banner -->
       <div class="ai-banner" id="aiBanner">
-        <div class="ai-icon">🧠</div>
+        <div class="ai-avatar">🧠</div>
         <div class="ai-content">
           <h3>Your Personal WealthMap Insight</h3>
           <p id="aiInsightText">Loading your personalized insight...</p>
         </div>
       </div>
 
-      <!-- FILTER + SEARCH BAR -->
+      <!-- Controls: Search + Filter + Sort -->
       <div class="controls-bar">
         <div class="search-wrap">
-          <span class="search-icon">🔍</span>
+          <span>🔍</span>
           <input
             type="text"
             id="searchInput"
-            placeholder="Search opportunities or investments..."
-            oninput="filterResults()"
+            placeholder="Search investments or opportunities..."
+            oninput="filterAndSearch()"
           />
         </div>
+
         <div class="filter-buttons">
-          <button class="filter-btn active" onclick="filterByRisk('all', this)">
+          <span class="filter-label">Filter:</span>
+          <button class="filter-btn active" onclick="setFilter('all', this)">
             All
           </button>
-          <button class="filter-btn" onclick="filterByRisk('low', this)">
+          <button class="filter-btn" onclick="setFilter('low', this)">
             🟢 Low Risk
           </button>
-          <button class="filter-btn" onclick="filterByRisk('medium', this)">
-            🟡 Medium Risk
+          <button class="filter-btn" onclick="setFilter('medium', this)">
+            🟡 Medium
           </button>
-          <button class="filter-btn" onclick="filterByRisk('high', this)">
+          <button class="filter-btn" onclick="setFilter('high', this)">
             🔴 High Risk
           </button>
-          <button class="filter-btn" onclick="filterByRisk('free', this)">
+          <button class="filter-btn" onclick="setFilter('free', this)">
             ✨ Free
           </button>
+          <button class="filter-btn" onclick="setFilter('invest', this)">
+            💰 Invest
+          </button>
+          <button class="filter-btn" onclick="setFilter('earn', this)">
+            🚀 Earn
+          </button>
         </div>
+
         <div class="sort-wrap">
-          <label>Sort by:</label>
-          <select onchange="sortResults(this.value)">
+          <span class="filter-label">Sort:</span>
+          <select onchange="sortCards(this.value)">
             <option value="default">Default</option>
-            <option value="risk-low">Risk: Low to High</option>
-            <option value="risk-high">Risk: High to Low</option>
-            <option value="name">Name A-Z</option>
+            <option value="risk-low">Risk: Low → High</option>
+            <option value="risk-high">Risk: High → Low</option>
+            <option value="name">Name A → Z</option>
           </select>
         </div>
       </div>
 
-      <!-- RESULTS GRID -->
+      <!-- Results count -->
       <div class="results-header">
-        <div class="results-title">
-          <h2 id="resultsTitle">Your WealthMap</h2>
-          <span class="results-count" id="resultsCount"></span>
-        </div>
+        <h2 id="resultsTitle">Your WealthMap</h2>
+        <span class="results-count" id="resultsCount"></span>
       </div>
 
-      <div class="cards-grid" id="cardsGrid">
-        <!-- Cards injected by JavaScript -->
+      <!-- Cards go here — injected by JavaScript -->
+      <div class="cards-grid" id="cardsGrid"></div>
+
+      <!-- Empty state — shown if no results match filter -->
+      <div class="empty-state" id="emptyState" style="display: none">
+        <p>🔍 No results match your filter. Try a different one.</p>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
       <p>◈ WealthMap — Empowering financial decisions worldwide</p>
       <p class="footer-credits">
-        Powered by Alpha Vantage · Adzuna · ExchangeRate API · Claude AI
+        Powered by
+        <a href="https://www.alphavantage.co/" target="_blank">Alpha Vantage</a>
+        · <a href="https://developer.adzuna.com/" target="_blank">Adzuna</a> ·
+        <a href="https://www.exchangerate-api.com/" target="_blank"
+          >ExchangeRate API</a
+        >
+        ·
+        <a href="https://www.anthropic.com/" target="_blank">Claude AI</a>
       </p>
     </footer>
 
+    <!-- config.js loads first so API keys are available -->
+    <script src="config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

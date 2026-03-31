@@ -560,7 +560,7 @@ Write in flowing paragraphs only. No bold text, no headers, no bullet points, no
       },
       body: JSON.stringify({
         model: "claude-opus-4-5",
-        max_tokens: 400,
+        max_tokens: 250,
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -650,7 +650,7 @@ function renderCards(cards) {
       <div class="card-header">
         <div class="card-icon icon-${card.type}">${card.icon}</div>
         <div class="card-badge">
-          <span class="badge badge-${card.type}">${card.type === "invest" ? "Invest" : card.type === "earn" ? "Earn" : "Free"}</span>
+          <span class="badge badge-${card.type}">● ${card.type === "invest" ? "Invest" : card.type === "earn" ? "Earn" : "Free"}</span>
         </div>
       </div>
       <h3 class="card-title">${card.title}</h3>

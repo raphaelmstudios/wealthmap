@@ -746,3 +746,22 @@ window.addEventListener("unhandledrejection", (event) => {
   hideLoading();
   showError("Something went wrong loading your data. Please try again.");
 });
+
+// Dark mode toggle
+function toggleTheme() {
+  const body = document.body;
+  const icon = document.getElementById("themeIcon");
+  const isDark = body.classList.toggle("dark");
+  icon.textContent = isDark ? "○" : "☽";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
+// Apply saved theme on page load
+(function () {
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") {
+    document.body.classList.add("dark");
+    const icon = document.getElementById("themeIcon");
+    if (icon) icon.textContent = "○";
+  }
+})();

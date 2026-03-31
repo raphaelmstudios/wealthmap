@@ -24,9 +24,19 @@
     <nav class="navbar">
       <div class="nav-brand">
         <span class="logo-icon">◈</span>
-        <span class="logo-text">WealthMap</span>
+        <span class="logo-text">Wealth<span>Map</span></span>
       </div>
-      <span class="nav-tagline">Your Personal Financial Roadmap</span>
+      <div style="display: flex; align-items: center; gap: 16px">
+        <span class="nav-tagline">Your Personal Financial Roadmap</span>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          onclick="toggleTheme()"
+          aria-label="Toggle dark mode"
+        >
+          <span id="themeIcon">☽</span>
+        </button>
+      </div>
     </nav>
 
     <!-- ========== HERO ========== -->

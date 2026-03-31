@@ -769,3 +769,133 @@ body {
     padding: 0 20px 80px;
   }
 }
+
+/* ── DARK MODE ── */
+body.dark {
+  --warm-white: #111110;
+  --white: #1a1a18;
+  --black: #f2f0ef;
+  --silver: #9a9c9b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-solid: #444;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .navbar {
+  background: rgba(17, 17, 16, 0.92);
+}
+
+body.dark .loading-overlay {
+  background: rgba(17, 17, 16, 0.95);
+}
+
+body.dark .build-btn {
+  background: var(--ocean);
+}
+
+body.dark .build-btn:hover {
+  background: #1d4f61;
+}
+
+body.dark .filter-btn.active {
+  background: var(--ocean);
+  border-color: var(--ocean);
+}
+
+body.dark .card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-solid);
+  background: var(--warm-white);
+  color: var(--black);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+}
+
+/* ── MOBILE IMPROVEMENTS ── */
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 16px 36px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .profile-card {
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .profile-section {
+    padding: 0 16px;
+    margin-bottom: 60px;
+  }
+
+  .results-section {
+    padding: 0 16px 60px;
+  }
+
+  .controls-bar {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .filter-buttons {
+    gap: 5px;
+  }
+
+  .filter-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .ai-banner {
+    padding: 18px 20px;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  .nav-tagline {
+    display: none;
+  }
+}

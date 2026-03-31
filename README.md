@@ -6,15 +6,15 @@
 
 ## The Problem
 
-Across Africa and the developing world, millions of young people earn money, save small amounts, and have real skills — but have no idea what to do next.
+Across Africa and the developing world, millions of young people earn money, save small amounts, and have real skills, but have no idea what to do next.
 
-Not because they lack ambition. Because nobody told them.
+Not because they lack ambition. Because nobody taught them what to do.
 
 A 22-year-old in Nairobi with KSh 5,000 saved doesn't know whether to put it in a Money Market Fund, buy NSE stocks, join a SACCO, or invest in crypto. A graphic designer in Lagos doesn't know that their skills are worth $40/hour on international freelance platforms. A software developer in Kigali doesn't know there are remote jobs paying in dollars they can apply to today.
 
 Financial illiteracy is not a character flaw. It is an information gap.
 
-The tools that exist either talk down to people, require existing wealth to be useful, or are built exclusively for Western markets. There is no simple, honest, personalized tool that looks at where someone actually is — their age, their country, their amount, their skills — and shows them every path forward.
+The tools that exist either talk down to people, require existing wealth to be useful, or are built exclusively for Western markets. There is no simple, honest, personalized tool that looks at where someone actually is, their age, their country, their amount, their skills, and shows them every path forward.
 
 That is the gap WealthMap fills.
 
@@ -22,7 +22,7 @@ That is the gap WealthMap fills.
 
 ## What WealthMap Does
 
-WealthMap is a personal financial decision engine. It takes five inputs from a user — their name, country, investable amount, age, and field of work — and generates a complete, personalized financial roadmap in seconds.
+WealthMap is a personal financial decision engine. It takes five inputs from a user: their name, country, investable amount, age, and field of work, and generates a complete, personalized financial roadmap in seconds.
 
 The roadmap has two sides working simultaneously:
 
@@ -30,9 +30,9 @@ The roadmap has two sides working simultaneously:
 
 **Grow Your Income** — Real job listings and income opportunities matched to the user's skill and country, alongside freelance platforms, certifications, and remote work options they can act on immediately.
 
-Above everything sits a personalized AI insight — written specifically for the user's age, amount, country, and field — giving them one clear investment move and one clear income move to make right now.
+Above everything sits a personalized AI insight, written specifically for the user's age, amount, country, and field, giving them one clear investment move and one clear income move to make right now.
 
-The entire results page is filterable by risk level and category, sortable by risk and name, and fully searchable — so users can navigate their options with precision.
+The entire results page is filterable by risk level and category, sortable by risk and name, and fully searchable, so users can navigate their options with precision.
 
 ---
 
@@ -60,7 +60,7 @@ Also accessible directly at:
 - Full text search across all cards
 - Graceful fallback for every API — app never breaks
 - Fully responsive on mobile and desktop
-- Clean, premium UI with no frameworks — pure HTML, CSS, and JavaScript
+- Clean, premium UI with no frameworks, pure HTML, CSS, and JavaScript
 
 ---
 

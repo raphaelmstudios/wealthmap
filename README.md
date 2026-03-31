@@ -5,6 +5,7 @@
 WealthMap is a personal financial decision engine built for young people who have money to grow and skills to monetize but no clear path forward. Enter five details about yourself and get a complete, personalized roadmap of every investment option available in your country alongside real income opportunities matched to your field. Powered by four live APIs and a Claude AI insight layer, WealthMap gives you the kind of advice that used to require a financial advisor.
 
 Live at → **[https://www.raphaelmumo.tech](https://www.raphaelmumo.tech)**
+Demo video **[https://youtu.be/FXSXmg0VJFs](https://youtu.be/FXSXmg0VJFs)**
 
 ---
 
